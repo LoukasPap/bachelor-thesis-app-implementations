@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <h1 style="display:inline">All items</h1> Hello, <%= username %>
+    <h1></h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity in cart</th>
+        </tr>
+        <% for(var i = 0; i < items.length; i++) { %>
+            <tr>
+                <td><b>#<%= items[i].id %></b></td>
+                <td><%= items[i].name %></td>
+                <td><%= items[i].description %></td>
+                
+                <td style="text-align:center"><%= cart[i+1] || 0 %></td>
+                <td>
+                    <form method="POST" action="http://localhost:5000/items/add/<%=items[i].id%>">
+                        <input style="width:30%" type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+                        <input style="color:rgb(50, 200, 50)" type="submit" value="Add"></input>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST" action="http://localhost:5000/items/remove/<%=items[i].id%>">
+                        <input style="width:30%" type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+                        <input style="color:rgb(200, 50, 50)" type="submit" value="Remove"></input>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <%- include("footer.html") %>
+
+</body>
+</html>
+

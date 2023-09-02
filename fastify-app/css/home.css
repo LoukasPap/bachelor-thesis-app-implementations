@@ -1,0 +1,24 @@
+body, html {
+  margin: 10;
+  font-family: sans-serif;
+  background-color: rgb(255, 255, 255);
+  padding: 40px 15px;
+  text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: 10%;
+}
+
+td, th {
+  border: 1px solid #b6b6b6;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

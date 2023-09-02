@@ -1,0 +1,36 @@
+body, html {
+    margin: 10;
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+    padding: 40px 15px;
+    text-align: center;
+}
+
+
+table, td, th {
+    border: 2px solid rgb(218, 218, 218);
+    text-align: left;
+    padding: 8px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+#content {
+    width: 70%;
+}
