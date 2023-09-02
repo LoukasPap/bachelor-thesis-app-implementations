@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{super()}}
+{% endblock %}
+
+{% block body %}
+    <h1 style="display:inline">All items</h1> Hello, {{user.username}}
+    <h1></h1>
+    <table>
+        <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Quantity in cart</th>
+        </tr>
+        <form method="POST" action="http://127.0.0.1:8000/purchase">
+            {% for i in items %}
+                <tr>
+                    <td><b>#{{ i.id }}</b></td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.description }}</td>
+                    
+                    <td style="text-align:center">{{ request.session.get('cart').get(i.id|string) or 0 }}</td>
+                    <td>
+                        <input style="width:30%" type="number" id="{{i.id}}" name="{{i.id}}" value="0" min="0" max="10">
+                    </td>
+                    <!--<td>
+                        <form method="POST" action="http://127.0.0.1:8000/items/remove/{{i.id}}">
+                            <input style="width:30%" type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+                            <input style="color:rgb(200, 50, 50)" type="submit" value="Remove"></input>
+                        </form>
+                    </td>-->
+                </tr>
+            {% endfor %}
+            <input type="hidden" id="cust_id" name="cust_id" value="{{ user.id }}"> 
+            <input style="color:rgb(50, 200, 50)" type="submit" value="Purchase"></input>
+        </form>
+    </table>
+    {% include "footer.html" %}
+{% endblock %}
+

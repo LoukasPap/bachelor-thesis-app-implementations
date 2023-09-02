@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', path='/static/css/home.css')}}">
+{% endblock %}
+
+{% block body %}
+    <h2>Login</h2>
+
+    <form action="http://127.0.0.1:8000/login" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" value="loukas"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password" value="loukas"><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+    <br>
+    <a href='home'>Home</a><br><br>
+    <a href='register'>Register</a>
+{% endblock %}
